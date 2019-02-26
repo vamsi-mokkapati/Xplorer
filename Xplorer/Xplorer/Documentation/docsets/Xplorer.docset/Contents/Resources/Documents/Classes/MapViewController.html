@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MapViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MapViewController" class="dashAnchor"></a>
+    <a title="MapViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Xplorer Docs</a> (46% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Xplorer Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MapViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InterestViewController.html">InterestViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MapViewController.html">MapViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/POITableViewCell.html">POITableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartViewController.html">StartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TimeAndLocationViewController.html">TimeAndLocationViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/PlaceData.html">PlaceData</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MapViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MapViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">UITableViewDelegate</span><span class="p">,</span> <span class="kt">UITableViewDataSource</span></code></pre>
+
+                </div>
+              </div>
+            <p>The MapViewController is the main view controller for our app.  It prominently displays the map and is used to show the user&rsquo;s selected itinerary.</p>
+
+<p>MapViewController extends UIViewController.</p>
+
+<p>Properties:</p>
+
+<ul>
+<li><code>currentLocation</code>:      a CLLocation that specifies the current location.</li>
+<li><code>mapView</code>:              the main GMS mapview.  This is the view that is displayed full screen in this controller.</li>
+<li><code>placesClient</code>:         a GMSPlacesClient variable so that we can make use of the Google Places API.</li>
+<li><code>zoomLevel</code>:            indicates the zoom level of the map.</li>
+<li><code>appDelegate</code>:          a reference back to the app&rsquo;s AppDelegate object.</li>
+<li><code>markers</code>:              an array of GMSMarker objects that contain the markers on the map.</li>
+<li><code>resultsReturned</code>:      The array of results returned by the nearby place lookup in dictionary form.</li>
+<li><code>resultsData</code>:          The array of PlaceData objects for the returned POI results.</li>
+<li><code>startLocation</code>:        CLLocationCoordinate2D that stores the user&rsquo;s start location.</li>
+<li><code>endLocation</code>:          CLLocationCoordinate2D that stores the user&rsquo;s end location.</li>
+<li><code>polylines</code>:            an array of GMSPolyline objects that represent the drawn routes on the map when the user selects POIs.</li>
+<li><code>freeTime</code>:             an Int that represents how much more flexible time the user has to add POIs to his/her route.</li>
+<li><code>defaultLocation</code>:      if the app is running in simulator mode, or if the user has not accepted location preferences, the map begins at Apple&rsquo;s headquarters.</li>
+</ul>
+
+<p>IBOutlets:</p>
+
+<ul>
+<li><code>@IBOutlet tripPlanning</code>:           the right UIBarButtonItem on the navigation bar in the main map view that takes the user to the TimeAndLocationViewController.</li>
+<li><code>@IBOutlet interestsBarButton</code>:     the left UIBarButtonItem on the navigation bar in the main map view that takes the user to the InterestViewController.</li>
+<li><code>@IBOutlet POIList</code>:                the UITableView that is displayed containing possible POIs.</li>
+<li><code>@IBOutlet directionsButton</code>:       the UIButton to take the user to Google Maps.</li>
+<li><code>@IBOutlet flexibleTime</code>:           the UILabel that shows the user how much flexible time is remaining.</li>
+</ul>
+
+<p>Navigation:</p>
+
+<ul>
+<li>override func prepare (for segue: UIStoryboardSegue, sender: Any?): This method lets you prepare the view controller before it&rsquo;s presented.</li>
+</ul>
+
+<p>Actions:</p>
+
+<ul>
+<li>@IBAction func unwindToMapView(sender: UIStoryboardSegue): This method allows the TimeAndLocationViewController to unwind to this view controller.</li>
+<li>@IBAction func openGoogleMaps(_ sender: UIButton):         This method opens Google Maps once the user has finalized his/her POIs.</li>
+</ul>
+
+<p>Additional methods:</p>
+
+<ul>
+<li>override func viewDidLoad():                        This method specifies how to load the view.</li>
+<li>override func didReceiveMemoryWarning():            This method specifies what to do when memory warnings occur.</li>
+<li>func prepareFlexibleTime(seconds: Int):             This method updates the flexibleTime label.</li>
+<li>func returnPOITimeEstimate(types: [String]) -&gt; Int: This method returns the time estimates for different POI types.</li>
+<li>func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int:    This method returns the number of elements in a section of a UITableView.</li>
+<li>func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell :   This method is used to populate the cells of the table.</li>
+<li>func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath):  This method handles user selection of a cell in the table.</li>
+<li>addMarker(place: GMSPlace!, type: String):  This method adds a marker to the map.</li>
+<li>func updateMapZoom():                       This method updates the zoom of the map to contain all the markers.</li>
+<li>func updateMapPolyline():                   This method redraws the optimized route through the POIs.</li>
+</ul>
+
+<p>Delegates:</p>
+
+<ul>
+<li>CLLocationManagerDelegate:  The MapViewController has to implement the CLLocationManagerDelegate.</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TODO:%20Move%20all%20properties%20above%20the%20UITableViewDelegate%20and%20UITableViewDataSource%20definitions"></a>
+                <a name="//apple_ref/swift/Section/TODO: Move all properties above the UITableViewDelegate and UITableViewDataSource definitions" class="dashAnchor"></a>
+                <a href="#/TODO:%20Move%20all%20properties%20above%20the%20UITableViewDelegate%20and%20UITableViewDataSource%20definitions">
+                  <h3 class="section-name">TODO: Move all properties above the UITableViewDelegate and UITableViewDataSource definitions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC15currentLocationSo10CLLocationCSgv"></a>
+                    <a name="//apple_ref/swift/Property/currentLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC15currentLocationSo10CLLocationCSgv">currentLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">currentLocation</span><span class="p">:</span> <span class="kt">CLLocation</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC03mapC0SQySo06GMSMapC0CGv"></a>
+                    <a name="//apple_ref/swift/Property/mapView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC03mapC0SQySo06GMSMapC0CGv">mapView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">mapView</span><span class="p">:</span> <span class="kt">GMSMapView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC12placesClientSQySo09GMSPlacesF0CGv"></a>
+                    <a name="//apple_ref/swift/Property/placesClient" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC12placesClientSQySo09GMSPlacesF0CGv">placesClient</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">placesClient</span><span class="p">:</span> <span class="kt">GMSPlacesClient</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC9zoomLevelSfv"></a>
+                    <a name="//apple_ref/swift/Property/zoomLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC9zoomLevelSfv">zoomLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">zoomLevel</span><span class="p">:</span> <span class="kt">Float</span> <span class="o">=</span> <span class="mf">15.0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC11appDelegateAA03AppF0Cv"></a>
+                    <a name="//apple_ref/swift/Property/appDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC11appDelegateAA03AppF0Cv">appDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">appDelegate</span> <span class="o">=</span> <span class="kt">UIApplication</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">delegate</span> <span class="k">as!</span> <span class="kt"><a href="../Classes/AppDelegate.html">AppDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC7markersSaySo9GMSMarkerCGv"></a>
+                    <a name="//apple_ref/swift/Property/markers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC7markersSaySo9GMSMarkerCGv">markers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">markers</span><span class="p">:</span> <span class="p">[</span><span class="kt">GMSMarker</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC15resultsReturnedSo14NSMutableArrayCv"></a>
+                    <a name="//apple_ref/swift/Property/resultsReturned" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC15resultsReturnedSo14NSMutableArrayCv">resultsReturned</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">resultsReturned</span><span class="p">:</span> <span class="kt">NSMutableArray</span> <span class="o">=</span> <span class="kt">NSMutableArray</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC11resultsDataSayAA05PlaceF0VGv"></a>
+                    <a name="//apple_ref/swift/Property/resultsData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC11resultsDataSayAA05PlaceF0VGv">resultsData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">resultsData</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/PlaceData.html">PlaceData</a></span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC13startLocationSC22CLLocationCoordinate2DVv"></a>
+                    <a name="//apple_ref/swift/Property/startLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC13startLocationSC22CLLocationCoordinate2DVv">startLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">startLocation</span><span class="p">:</span> <span class="kt">CLLocationCoordinate2D</span> <span class="o">=</span> <span class="kt">CLLocationCoordinate2D</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC11endLocationSC22CLLocationCoordinate2DVv"></a>
+                    <a name="//apple_ref/swift/Property/endLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC11endLocationSC22CLLocationCoordinate2DVv">endLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">endLocation</span><span class="p">:</span> <span class="kt">CLLocationCoordinate2D</span> <span class="o">=</span> <span class="kt">CLLocationCoordinate2D</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC9polylinesSaySo11GMSPolylineCGv"></a>
+                    <a name="//apple_ref/swift/Property/polylines" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC9polylinesSaySo11GMSPolylineCGv">polylines</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">polylines</span><span class="p">:</span> <span class="p">[</span><span class="kt">GMSPolyline</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC8freeTimeSiv"></a>
+                    <a name="//apple_ref/swift/Property/freeTime" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC8freeTimeSiv">freeTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">freeTime</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(py)tripPlanning"></a>
+                    <a name="//apple_ref/swift/Property/tripPlanning" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(py)tripPlanning">tripPlanning</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">tripPlanning</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(py)interestsBarButton"></a>
+                    <a name="//apple_ref/swift/Property/interestsBarButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(py)interestsBarButton">interestsBarButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">interestsBarButton</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(py)POIList"></a>
+                    <a name="//apple_ref/swift/Property/POIList" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(py)POIList">POIList</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">POIList</span><span class="p">:</span> <span class="kt">UITableView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(py)directionsButton"></a>
+                    <a name="//apple_ref/swift/Property/directionsButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(py)directionsButton">directionsButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">directionsButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(py)flexibleTime"></a>
+                    <a name="//apple_ref/swift/Property/flexibleTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(py)flexibleTime">flexibleTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">flexibleTime</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC15defaultLocationSo10CLLocationCv"></a>
+                    <a name="//apple_ref/swift/Property/defaultLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC15defaultLocationSo10CLLocationCv">defaultLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">defaultLocation</span> <span class="o">=</span> <span class="kt">CLLocation</span><span class="p">(</span><span class="nv">latitude</span><span class="p">:</span> <span class="mf">37.33182</span><span class="p">,</span> <span class="nv">longitude</span><span class="p">:</span> <span class="o">-</span><span class="mf">122.03118</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is called when the view is loaded.
+We have overriden it to:</p>
+
+<ul>
+<li>Initialize the locationManager object.</li>
+<li>Initialize the placesClient object.</li>
+<li>Create a map to show:</li>
+<li>camera view</li>
+<li>map view</li>
+<li>center location button</li>
+<li>current location</li>
+<li><p>Add the map to the view</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)didReceiveMemoryWarning"></a>
+                    <a name="//apple_ref/swift/Method/didReceiveMemoryWarning()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is called when the view controller receives a memory warning.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">didReceiveMemoryWarning</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC19prepareFlexibleTimeySi7seconds_tF"></a>
+                    <a name="//apple_ref/swift/Method/prepareFlexibleTime(seconds:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC19prepareFlexibleTimeySi7seconds_tF">prepareFlexibleTime(seconds:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used to update the time display in the flexible time remaining label.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">prepareFlexibleTime</span><span class="p">(</span><span class="nv">seconds</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>seconds</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An Int, all we need are the seconds to calculate the hours and minutes for the flexibleTime display</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC21returnPOITimeEstimateSiSaySSG5types_tF"></a>
+                    <a name="//apple_ref/swift/Method/returnPOITimeEstimate(types:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC21returnPOITimeEstimateSiSaySSG5types_tF">returnPOITimeEstimate(types:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used to return how much time a user is expected to spend at a type of POI.</p>
+
+<p>We performed market research and read consumer reviews to figure out an average for how much time users would spend at:</p>
+
+<ul>
+<li>Night clubs</li>
+<li>Bars</li>
+<li>Amusement parks</li>
+<li>Aquariums</li>
+<li>Bowling alleys</li>
+<li>Movie theaters</li>
+<li>Zoos</li>
+<li>Parks</li>
+<li><p>Restaurants</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">returnPOITimeEstimate</span><span class="p">(</span><span class="nv">types</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>types</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An Array of Strings that designate the types for the current POI.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Int</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)tableView:numberOfRowsInSection:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:numberOfRowsInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)tableView:numberOfRowsInSection:">tableView(_:numberOfRowsInSection:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used to calculate the number of rows in a table.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tableView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A UITableView that contains the table.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>section</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An Int specifying the number of rows in the section.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Int</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)tableView:cellForRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:cellForRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)tableView:cellForRowAtIndexPath:">tableView(_:cellForRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used to populate the cells of a table. We refer to our POI Array to populate the cells.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tableView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A UITableView that contains the table.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indexPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An IndexPath specifying the row index.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>UITableViewCell</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)tableView:didSelectRowAtIndexPath:"></a>
+                    <a name="//apple_ref/swift/Method/tableView(_:didSelectRowAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)tableView:didSelectRowAtIndexPath:">tableView(_:didSelectRowAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used to handle user selection for a cell of the table.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">didSelectRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tableView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A UITableView that contains the table.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indexPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An IndexPath specifying the row index.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Navigation"></a>
+                <a name="//apple_ref/swift/Section/Navigation" class="dashAnchor"></a>
+                <a href="#/Navigation">
+                  <h3 class="section-name">Navigation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)prepareForSegue:sender:"></a>
+                    <a name="//apple_ref/swift/Method/prepare(for:sender:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)prepareForSegue:sender:">prepare(for:sender:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">prepare</span> <span class="p">(</span><span class="k">for</span> <span class="nv">segue</span><span class="p">:</span> <span class="kt">UIStoryboardSegue</span><span class="p">,</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Actions"></a>
+                <a name="//apple_ref/swift/Section/Actions" class="dashAnchor"></a>
+                <a href="#/Actions">
+                  <h3 class="section-name">Actions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)openGoogleMaps:"></a>
+                    <a name="//apple_ref/swift/Method/openGoogleMaps(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)openGoogleMaps:">openGoogleMaps(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method opens Google Maps for directions once the user has selected their POIs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">openGoogleMaps</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A UIButton object that is the sender of the event.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)MapViewController(im)unwindToMapViewWithSender:"></a>
+                    <a name="//apple_ref/swift/Method/unwindToMapView(sender:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)MapViewController(im)unwindToMapViewWithSender:">unwindToMapView(sender:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used for the <q>Done</q> button in the TimeAndLocationViewController.</p>
+
+<p>Because we want to get back to this view, we need to unwind from the TimeAndLocationViewController.
+To prepare to unwind, we:</p>
+
+<ul>
+<li>Get the start and end places as GMSPlace objects</li>
+<li>Get the start and end times from the <code>UIDatePicker</code> objects in the TimeAndLocationViewController.</li>
+<li>Add markers to the map, specifying the start and end locations that the user selected.</li>
+</ul>
+
+<p>The method is specified with an @IBAction tag to denote that it is an action that an UI element can be linked to.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">unwindToMapView</span><span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">UIStoryboardSegue</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The sender is the object that prepares for and performs the visual transition between two view controllers.  It supports all visual transitions that have been defined in UIKit.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC9addMarkerySQySo8GMSPlaceCG5place_SS4typetF"></a>
+                    <a name="//apple_ref/swift/Method/addMarker(place:type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC9addMarkerySQySo8GMSPlaceCG5place_SS4typetF">addMarker(place:type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This function adds a marker to the map.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">addMarker</span><span class="p">(</span><span class="nv">place</span><span class="p">:</span> <span class="kt">GMSPlace</span><span class="o">!</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>place</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The GMSPlace that represents the place you want to add to the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Specifies whether the marker will be for a <q>start</q> or an <q>end</q> location.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC06updateB4ZoomyyF"></a>
+                    <a name="//apple_ref/swift/Method/updateMapZoom()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC06updateB4ZoomyyF">updateMapZoom()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This function updates the zoom of the map to contain all the markers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateMapZoom</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer17MapViewControllerC06updateB8PolylineyyF"></a>
+                    <a name="//apple_ref/swift/Method/updateMapPolyline()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer17MapViewControllerC06updateB8PolylineyyF">updateMapPolyline()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This function redraws the optimized route through the POIs..</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateMapPolyline</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Xplorer@objc(cs)MapViewController(im)locationManager:didUpdateLocations:"></a>
+                    <a name="//apple_ref/swift/Method/locationManager(_:didUpdateLocations:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Xplorer@objc(cs)MapViewController(im)locationManager:didUpdateLocations:">locationManager(_:didUpdateLocations:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">locationManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">CLLocationManager</span><span class="p">,</span> <span class="n">didUpdateLocations</span> <span class="nv">locations</span><span class="p">:</span> <span class="p">[</span><span class="kt">CLLocation</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Xplorer@objc(cs)MapViewController(im)locationManager:didChangeAuthorizationStatus:"></a>
+                    <a name="//apple_ref/swift/Method/locationManager(_:didChangeAuthorization:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Xplorer@objc(cs)MapViewController(im)locationManager:didChangeAuthorizationStatus:">locationManager(_:didChangeAuthorization:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">locationManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">CLLocationManager</span><span class="p">,</span> <span class="n">didChangeAuthorization</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">CLAuthorizationStatus</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Xplorer@objc(cs)MapViewController(im)locationManager:didFailWithError:"></a>
+                    <a name="//apple_ref/swift/Method/locationManager(_:didFailWithError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Xplorer@objc(cs)MapViewController(im)locationManager:didFailWithError:">locationManager(_:didFailWithError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">locationManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">manager</span><span class="p">:</span> <span class="kt">CLLocationManager</span><span class="p">,</span> <span class="n">didFailWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/devandutta/CS_130_Fall_2017" target="_blank" rel="external">Devan Dutta</a>. All rights reserved. (Last updated: 2017-12-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

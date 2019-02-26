@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TimeAndLocationViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/TimeAndLocationViewController" class="dashAnchor"></a>
+    <a title="TimeAndLocationViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Xplorer Docs</a> (46% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Xplorer Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        TimeAndLocationViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/InterestViewController.html">InterestViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MapViewController.html">MapViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/POITableViewCell.html">POITableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StartViewController.html">StartViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TimeAndLocationViewController.html">TimeAndLocationViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/PlaceData.html">PlaceData</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TimeAndLocationViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">TimeAndLocationViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">UITextFieldDelegate</span><span class="p">,</span> <span class="kt">GMSAutocompleteViewControllerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class is used as the Time and Location Input Controller for the user.
+It is in this view that the user is able to select a start location, start time, end location, and end time.</p>
+
+<p>This class extends UIViewController and implements UITextFieldDelegate and GMSAutocompleteViewControllerDelegate.</p>
+
+<p>Properties:</p>
+
+<ul>
+<li><code>lastUITextFieldSelected</code>:      A UITextField that represents the last text field that the user selected and indicates to the view whether to place the user&rsquo;s searched location in the start or end text field.</li>
+<li><code>startPlace</code>:                   A GMSPlace that represents the start place.</li>
+<li><code>endPlace</code>:                     A GMSPlace that represents the end place.</li>
+<li><code>startTimeInfo</code>:                An NSDate that represents the start time.</li>
+<li><code>endTimeInfo</code>:                  An NSDate that represents the end time.</li>
+<li><code>userTimeIntervalDouble</code>:       A Double representing the user entered time delta in seconds.</li>
+<li><code>totalDuration</code>:                A Double representing how long it will take to get from the startPlace to the endPlace.</li>
+<li><code>cancelPressed</code>:                A Bool that records whether the user cancelled the input selection.</li>
+</ul>
+
+<p>Outlets:</p>
+
+<ul>
+<li>startLocation:  UITextField that holds the start location.</li>
+<li>endLocation:    UITextField that holds the end location.</li>
+<li>startTime:      UIDatePicker that holds the start time.</li>
+<li>endTime:        UIDatePicker that holds the end time.</li>
+<li>doneButton:     UIBarButtonItem that sits to the right in the navigation bar and only activates once the user has selected valid start and end locations.</li>
+<li>cancelButton:   UIBarButtonItem that sits to the left in the navigation bar and returns back to the map view.</li>
+</ul>
+
+<p>Constants:</p>
+
+<ul>
+<li>appDelegate:    This is a reference to the application&rsquo;s AppDelegate object.</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC23lastUITextFieldSelectedSo0hI0CSgv"></a>
+                    <a name="//apple_ref/swift/Property/lastUITextFieldSelected" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC23lastUITextFieldSelectedSo0hI0CSgv">lastUITextFieldSelected</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">lastUITextFieldSelected</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC10startPlaceSo8GMSPlaceCSgv"></a>
+                    <a name="//apple_ref/swift/Property/startPlace" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC10startPlaceSo8GMSPlaceCSgv">startPlace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">startPlace</span><span class="p">:</span> <span class="kt">GMSPlace</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC8endPlaceSo8GMSPlaceCSgv"></a>
+                    <a name="//apple_ref/swift/Property/endPlace" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC8endPlaceSo8GMSPlaceCSgv">endPlace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">endPlace</span><span class="p">:</span> <span class="kt">GMSPlace</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC05startB4InfoSo6NSDateCSgv"></a>
+                    <a name="//apple_ref/swift/Property/startTimeInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC05startB4InfoSo6NSDateCSgv">startTimeInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">startTimeInfo</span><span class="p">:</span> <span class="kt">NSDate</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC03endB4InfoSo6NSDateCSgv"></a>
+                    <a name="//apple_ref/swift/Property/endTimeInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC03endB4InfoSo6NSDateCSgv">endTimeInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">endTimeInfo</span><span class="p">:</span> <span class="kt">NSDate</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC04userB14IntervalDoubleSdv"></a>
+                    <a name="//apple_ref/swift/Property/userTimeIntervalDouble" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC04userB14IntervalDoubleSdv">userTimeIntervalDouble</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">userTimeIntervalDouble</span><span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC13totalDurationSdv"></a>
+                    <a name="//apple_ref/swift/Property/totalDuration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC13totalDurationSdv">totalDuration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">totalDuration</span><span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC13cancelPressedSbv"></a>
+                    <a name="//apple_ref/swift/Property/cancelPressed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC13cancelPressedSbv">cancelPressed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">cancelPressed</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)startLocation"></a>
+                    <a name="//apple_ref/swift/Property/startLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)startLocation">startLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">startLocation</span><span class="p">:</span> <span class="kt">UITextField</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)endLocation"></a>
+                    <a name="//apple_ref/swift/Property/endLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)endLocation">endLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">endLocation</span><span class="p">:</span> <span class="kt">UITextField</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)startTime"></a>
+                    <a name="//apple_ref/swift/Property/startTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)startTime">startTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">startTime</span><span class="p">:</span> <span class="kt">UIDatePicker</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)endTime"></a>
+                    <a name="//apple_ref/swift/Property/endTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)endTime">endTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">endTime</span><span class="p">:</span> <span class="kt">UIDatePicker</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)doneButton"></a>
+                    <a name="//apple_ref/swift/Property/doneButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)doneButton">doneButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">doneButton</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)cancelButton"></a>
+                    <a name="//apple_ref/swift/Property/cancelButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(py)cancelButton">cancelButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">cancelButton</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC11appDelegateAA03AppH0Cv"></a>
+                    <a name="//apple_ref/swift/Property/appDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC11appDelegateAA03AppH0Cv">appDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">appDelegate</span> <span class="o">=</span> <span class="kt">UIApplication</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">delegate</span> <span class="k">as!</span> <span class="kt"><a href="../Classes/AppDelegate.html">AppDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/SETUP"></a>
+                <a name="//apple_ref/swift/Section/SETUP" class="dashAnchor"></a>
+                <a href="#/SETUP">
+                  <h3 class="section-name">SETUP</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is called when the view is loaded.
+We have overriden it to:</p>
+
+<ul>
+<li>Initially disable the <q>Done</q> button.</li>
+<li><p>Set this class as the delegate for the start and end UITextField objects.</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)didReceiveMemoryWarning"></a>
+                    <a name="//apple_ref/swift/Method/didReceiveMemoryWarning()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used to dispose of any resources that can be recreated in the event of a memory warning.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">didReceiveMemoryWarning</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/AUTOCOMPLETE"></a>
+                <a name="//apple_ref/swift/Section/AUTOCOMPLETE" class="dashAnchor"></a>
+                <a href="#/AUTOCOMPLETE">
+                  <h3 class="section-name">AUTOCOMPLETE</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)viewController:didAutocompleteWithPlace:"></a>
+                    <a name="//apple_ref/swift/Method/viewController(_:didAutocompleteWith:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)viewController:didAutocompleteWithPlace:">viewController(_:didAutocompleteWith:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This function is invoked whenever the GMSAutocompleteView loads after tapping on either startLocation or endLocation.</p>
+
+<p>If both the startPlace and the endPlace are valid, then the <q>Done</q> button is activated.</p>
+
+<p>The view controller dismisses itself after a valid user selection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">viewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">GMSAutocompleteViewController</span><span class="p">,</span> <span class="n">didAutocompleteWith</span> <span class="nv">place</span><span class="p">:</span> <span class="kt">GMSPlace</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object refers to the GMS-specific view controller that called this method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>place</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object refers to the user&rsquo;s selection in the autofill suggestions.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)viewController:didFailAutocompleteWithError:"></a>
+                    <a name="//apple_ref/swift/Method/viewController(_:didFailAutocompleteWithError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)viewController:didFailAutocompleteWithError:">viewController(_:didFailAutocompleteWithError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">viewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">GMSAutocompleteViewController</span><span class="p">,</span> <span class="n">didFailAutocompleteWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)wasCancelled:"></a>
+                    <a name="//apple_ref/swift/Method/wasCancelled(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)wasCancelled:">wasCancelled(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is called when the user cancels entering text.
+This method is one of the GMSAutocompleteViewControllerDelegate methods.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">wasCancelled</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">GMSAutocompleteViewController</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object refers to the GMS-specific view controller that called this method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Xplorer29TimeAndLocationViewControllerC18handleAutocompleteySo11UITextFieldC6sender_tF"></a>
+                    <a name="//apple_ref/swift/Method/handleAutocomplete(sender:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Xplorer29TimeAndLocationViewControllerC18handleAutocompleteySo11UITextFieldC6sender_tF">handleAutocomplete(sender:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method deals with presenting the AutoCompleteViewController whenever either of the location UITextFields is selected.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">handleAutocomplete</span><span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object represents the specific UITextField that was tapped on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Actions"></a>
+                <a name="//apple_ref/swift/Section/Actions" class="dashAnchor"></a>
+                <a href="#/Actions">
+                  <h3 class="section-name">Actions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)openSearchAddressStartPlace:"></a>
+                    <a name="//apple_ref/swift/Method/openSearchAddressStartPlace(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)openSearchAddressStartPlace:">openSearchAddressStartPlace(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is the action handler (and is specified with @IBAction) for the startLocation UITextField.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">openSearchAddressStartPlace</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object represents the specific UITextField that was tapped on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)cancelButtonPressed:"></a>
+                    <a name="//apple_ref/swift/Method/cancelButtonPressed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)cancelButtonPressed:">cancelButtonPressed(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is the action handler (and is specified with @IBAction) for the cancelButton UIBarButtonItem.</p>
+
+<p>It simply:</p>
+
+<ul>
+<li>Records that the user canceled inputting parameters</li>
+<li><p>Unwinds to the map view</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">cancelButtonPressed</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object represents the specific UIBarButtonItem that was tapped on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)openSearchAddressEndPlace:"></a>
+                    <a name="//apple_ref/swift/Method/openSearchAddressEndPlace(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)openSearchAddressEndPlace:">openSearchAddressEndPlace(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is the action handler (and is specified with @IBAction) for the endLocation UITextField.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">openSearchAddressEndPlace</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object represents the specific UITextField that was tapped on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)doneButtonPressed:"></a>
+                    <a name="//apple_ref/swift/Method/doneButtonPressed(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)doneButtonPressed:">doneButtonPressed(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is the action handler (and is specified with @IBAction) for the doneButton UIBarButtonItem.</p>
+
+<p>It simply:</p>
+
+<ul>
+<li>Validates the user input for times and for locations</li>
+<li><p>Unwinds to the map view</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">doneButtonPressed</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIBarButtonItem</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This object represents the specific UIBarButtonItem that was tapped on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UITextFieldDelegate"></a>
+                <a name="//apple_ref/swift/Section/UITextFieldDelegate" class="dashAnchor"></a>
+                <a href="#/UITextFieldDelegate">
+                  <h3 class="section-name">UITextFieldDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)textFieldShouldReturn:"></a>
+                    <a name="//apple_ref/swift/Method/textFieldShouldReturn(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)textFieldShouldReturn:">textFieldShouldReturn(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is one of the methods that should be implemented for UITextFieldDelegate.</p>
+
+<p>It specifies what to do when the user presses <q>Enter</q>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">textFieldShouldReturn</span><span class="p">(</span><span class="n">_</span> <span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>textField</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The UITextField whose return button was pressed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>true</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)textFieldDidEndEditing:"></a>
+                    <a name="//apple_ref/swift/Method/textFieldDidEndEditing(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)textFieldDidEndEditing:">textFieldDidEndEditing(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method tells the delegate that editing stopped for the specified text field.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">textFieldDidEndEditing</span><span class="p">(</span><span class="n">_</span> <span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>textField</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The UITextField for which editing ended.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Navigation"></a>
+                <a name="//apple_ref/swift/Section/Navigation" class="dashAnchor"></a>
+                <a href="#/Navigation">
+                  <h3 class="section-name">Navigation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)prepareForSegue:sender:"></a>
+                    <a name="//apple_ref/swift/Method/prepare(for:sender:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Xplorer@objc(cs)TimeAndLocationViewController(im)prepareForSegue:sender:">prepare(for:sender:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method is used to prepare for a segue.  It notifies the view controller that a segue is about to be performed.</p>
+
+<p>The method checks to see if the sender was a UIBarButtonItem (in this case <q>Done</q>) and then sets the startTimeInfo and endTimeInfo objects to be relayed to the MapViewController upon the unwindToMapView() method in MapViewController.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="k">for</span> <span class="nv">segue</span><span class="p">:</span> <span class="kt">UIStoryboardSegue</span><span class="p">,</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>segue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The UIStoryboardSegue object that contains information about the view controllers involved in the segue.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sender</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object that initiated the segue.  Based on what the sender is, the behavior of this function can be decided at runtime.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>void</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/devandutta/CS_130_Fall_2017" target="_blank" rel="external">Devan Dutta</a>. All rights reserved. (Last updated: 2017-12-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

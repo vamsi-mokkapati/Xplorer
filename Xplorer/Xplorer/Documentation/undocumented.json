@@ -1,0 +1,383 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/AppDelegate.swift",
+      "line": 31,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/AppDelegate.swift",
+      "line": 33,
+      "symbol": "AppDelegate.locationManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/AppDelegate.swift",
+      "line": 34,
+      "symbol": "AppDelegate.GMSMapServicesKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/AppDelegate.swift",
+      "line": 35,
+      "symbol": "AppDelegate.GMSPlacesServicesKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/AppDelegate.swift",
+      "line": 36,
+      "symbol": "AppDelegate.GMSPlacesServicesKey_Alternate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/AppDelegate.swift",
+      "line": 37,
+      "symbol": "AppDelegate.GMSPlacesWebServicesKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/AppDelegate.swift",
+      "line": 38,
+      "symbol": "AppDelegate.GMSDirectionsKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/InterestViewController.swift",
+      "line": 37,
+      "symbol": "InterestViewController.kasf",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/InterestViewController.swift",
+      "line": 38,
+      "symbol": "InterestViewController.interests",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 70,
+      "symbol": "MapViewController.currentLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 71,
+      "symbol": "MapViewController.mapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 72,
+      "symbol": "MapViewController.placesClient",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 73,
+      "symbol": "MapViewController.zoomLevel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 74,
+      "symbol": "MapViewController.appDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 75,
+      "symbol": "MapViewController.markers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 76,
+      "symbol": "MapViewController.resultsReturned",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 77,
+      "symbol": "MapViewController.resultsData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 78,
+      "symbol": "MapViewController.startLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 79,
+      "symbol": "MapViewController.endLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 80,
+      "symbol": "MapViewController.polylines",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 81,
+      "symbol": "MapViewController.freeTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 83,
+      "symbol": "MapViewController.tripPlanning",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 84,
+      "symbol": "MapViewController.interestsBarButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 85,
+      "symbol": "MapViewController.POIList",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 86,
+      "symbol": "MapViewController.directionsButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 87,
+      "symbol": "MapViewController.flexibleTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 90,
+      "symbol": "MapViewController.defaultLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 425,
+      "symbol": "MapViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 928,
+      "symbol": "MapViewController.locationManager(_:didUpdateLocations:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 945,
+      "symbol": "MapViewController.locationManager(_:didChangeAuthorization:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 962,
+      "symbol": "MapViewController.locationManager(_:didFailWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 980,
+      "symbol": "PlaceData.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 981,
+      "symbol": "PlaceData.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 982,
+      "symbol": "PlaceData.coordinate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/MapViewController.swift",
+      "line": 983,
+      "symbol": "PlaceData.types",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/POITableViewCell.swift",
+      "line": 25,
+      "symbol": "POITableViewCell.placeName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/POITableViewCell.swift",
+      "line": 27,
+      "symbol": "POITableViewCell.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/POITableViewCell.swift",
+      "line": 29,
+      "symbol": "POITableViewCell.price",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 45,
+      "symbol": "TimeAndLocationViewController.lastUITextFieldSelected",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 46,
+      "symbol": "TimeAndLocationViewController.startPlace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 47,
+      "symbol": "TimeAndLocationViewController.endPlace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 48,
+      "symbol": "TimeAndLocationViewController.startTimeInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 49,
+      "symbol": "TimeAndLocationViewController.endTimeInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 50,
+      "symbol": "TimeAndLocationViewController.userTimeIntervalDouble",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 51,
+      "symbol": "TimeAndLocationViewController.totalDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 52,
+      "symbol": "TimeAndLocationViewController.cancelPressed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 55,
+      "symbol": "TimeAndLocationViewController.startLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 56,
+      "symbol": "TimeAndLocationViewController.endLocation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 57,
+      "symbol": "TimeAndLocationViewController.startTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 58,
+      "symbol": "TimeAndLocationViewController.endTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 59,
+      "symbol": "TimeAndLocationViewController.doneButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 60,
+      "symbol": "TimeAndLocationViewController.cancelButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 63,
+      "symbol": "TimeAndLocationViewController.appDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer/Xplorer/TimeAndLocationViewController.swift",
+      "line": 158,
+      "symbol": "TimeAndLocationViewController.viewController(_:didFailAutocompleteWithError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/Devan/Documents/CS 130/CS_130_Fall_2017/Xplorer"
+}
