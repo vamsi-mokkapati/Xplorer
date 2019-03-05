@@ -1,5 +1,4 @@
 # Xplorer
-Our team's project for Penn Apps 2017.
 
 # Motivation
 A lot of us like to travel and explore new places. However, building an itinerary is a time consuming task, especially when your purpose of travel is a short business trip. Many times, it is quite cumbersome to find places in a new city based on your interests. It is even more difficult to plan out your day to visit these places in your free time during the day. More often than not, you just end up going to the local tourist attractions and call it a day. We wanted to build an app for those who like to travel and explore new places enabling them to do so with more ease. Users can thus use our app to plan out their day, visiting places in the city based on their interests.
